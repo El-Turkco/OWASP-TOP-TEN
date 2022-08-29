@@ -1,0 +1,72 @@
+
+(1) Broken Acces Control Nedir ? (+) 
+
+(+) Broken Authentication zafiyeti genellikle kimlik doğrulama yada oturum yönetimi ile ilgili fonksiyonların yanlış uygulanması sonucunda ortaya çıkar.
+Kötü niyetli kişi parolaları ve token'ları ele geçirebilir.
+
+(2) Injection Nedir?(+) 
+
+(+) Injection zafiyetleri genellikle kullanıcıdan alınan, 
+kontrol edilmeyen yada önlem alınmayan verilerin komut olarak çalıştırılması yada sorguya dahil edilmesi yüzünden oluşur.
+(+) Saldırgan beklenilenden farklı bir veri göndererek sistemde komut çalıştırabilir, erişmemesi gereken verilere erişebilir hale gelir. 
+(+) Saldırgan komut çalıştırarak zaten sisteme erişmiş oluyor. Saldırgan bundan sonra hak yükseltme zafiyetlerini kullanarak sistemdeki etkinliğini dahada arttırabilir,
+bütün organizasyonun içine sızabilir. Injection neden risk sıralamasında en üstte artık anlayabiliriz.
+
+(+) SQL injection , Command injection şeklinde ikiye ayrılır
+
+(3)Sensitive Data Exposure Nedir?(+) 
+
+(+) Bu zafiyet türü verilerin şifrelenmemesi veya şifrelenen verilerin eski, default, açığa çıkmış şifreleme algoritmaları kullanılmasından ortaya çıkıyor.
+
+(+) SQl injection zafiyetini kullanarak veritabanındaki verilere erişebilse bile şifrelenmiş verileri anlamlandıramaz ise bir işine yaramayacaktır. Kullanılmakta olan şifreleme algoritmalarının güçlü olması burada işimize yarayacaktır.
+
+
+(4)XML External Entities Nedir?(+)
+
+(+)Bu zafiyet eski yada yanlış configure edilmiş xml parserlarından kaynaklanıyor. Saldırgan bu zafiyeti kullanarak sunucuya zararlı bir xml dosyası göndererek sunucudan dosya okuyabilir, kod çalıştırabilir, ve dos(denial of service) saldırısı gerçekleştirebilir durumuna geliyor.
+
+(+)Security Misconfiguration Nedir?(+)
+
+Servis ayarlarının yanlış yada eksik yapılması bu zafiyet türünün ortaya çıkmasına neden olur. Owasp’ a göre en çok bulunan güvenlik zafiyeti security misconfiguration dır.
+
+
+(5)Cross Site Scripting Nedir?(+)
+Kullanıcıdan alınan verilerin kontrol edilmeden, filtrelenmeden html response olarak gönderilmesi sonucu oluşur. XSS zafiyeti sayesinde saldırganlar kullanıcı browserında javascript çalıştırarak kullanıcı oturumunu çalabilirler.
+
+!!!XSS, sıklıkla karşılaşılan bir zafiyettir. Kontrol edilmeyen bir input, bütün uygulamayı ele geçirmesine neden olabilir.!!!
+
+
+(+)Reflected XSS:(+)
+(+)Reflected XSS, kullanıcıdan alınan verinin sadece o anlık html response a eklenip kullanıcının browser ında javascript kodu çalıştırabilmesidir. Bu XSS türünde XSS payloadı, sunucu tarafında kayıt altına alınmaz. Reflected XSS genellikle zararlı linklerin tıklanması sonucu olur. Personellere farkındalık eğitimi verilmesi bu tür saldırıların engellemesinde rol oynayabilir.
+
+(+)Stored XSS:(+)
+(+)Bu XSS türünü Reflected XSS‘ten ayıran özellik, Stored XSS adından da anlaşılacağı gibi sunucu tarafında kayıt altına alınıyor ve o sayfa her çağırıldığında kullanıcı tarafında javascript kodu çalıştırılıyor. Reflected XSS’ ten daha fazla zarar verme potansiyeli vardır. Çünkü Reflected XSS ten etkilenen sadece o linki tıklayandır fakat Stored XSS te o sayfayı görüntüleyen bütün kullanıcılar etkilenir.
+
+(+)DOM XSS:(+)
+(+)Bu XSS türü html üzerinde değil de DOM objeleri üzerinde etki ediyor. Yine aynı şekilde kullanıcının browser ı üzerinde zararlı javascript kodları çalıştırılmasına neden oluyor.
+
+
+(6)Insecure Deserialization Nedir?(+)
+Bu zafiyet kullanıcıdan gelen güvenilmeyen zararlı inputun deserialization u sonucu oluşuyor. Bu zafiyet, denial of service saldırılarına yada remote code execution saldırılarına yol açabiliyor. Bu yüzden kullanıcıdan gelen verilerin kontrol edilmesi gerekmektedir.
+
+
+
+(7)Using Components with Known Vulnerabilities Nedir?(+)
+
+(+)Bu zafiyet türü kullanılan servislerin, uygulamaların, eklentilerin eski ve bilindik exploitleri olan sürümlerinin kullanılması sonucu oluşuyor. Saldırganlar bu servislerin sürümlerini bulduktan sonra bilindik exploitleri kullanıp uygulamayı/sunucuyu ele geçirebilirler. Buda büyük bir risk oluşturuyor.
+
+
+(8)Insufficient Logging and Monitoring Nedir?(+)
+
+(+)Yeterli log lama ve monitoring işleminin yapılmaması büyük bir risk oluşturuyor. Girişler, başarısız giriş denemeleri, transferler ve önemli olan faliyetler loglanmalı ve sürekli kontrol edilip gerektiği yerde yöneticiler uyarılmalıdır.
+
+(9) SSRF nedir?(+) 
+
+(+) Sever-Site-Request Forgery(İstek Sahtekarlığı)
+(+) SSRF bir server'a yapılan bir isteği değiştirerek Http istekleri yapabilmek veya komutlar çalıştırarak admin panellerine ulaşabilmek ve farklı Back-End servislerine 
+erişmek için yapılan bir attack
+(+) SSRF yapabilmek için: Websitelerine yapılan istekleri BurpSuite araçı vb araçlarla yakalayıp manipüle edebiliriz.
+
+
+(10)Software and Data Integrity Failures Nedir?(+)
+(+)Cross Site Script ve Insecure Deserialization birleşiminden çıkabilir.
